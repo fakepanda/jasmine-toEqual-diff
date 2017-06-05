@@ -1,0 +1,11 @@
+{
+  "id": null,
+  "type": "OPEN_RECORD",
+  "content": {
+    "appId": 1,
+    "tblId": 2,
+    "recId": 3,
+    "nextRecordId": 4,
+    "previousRecordId": 5
+  }
+}

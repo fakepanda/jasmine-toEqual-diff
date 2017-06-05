@@ -1,0 +1,11 @@
+{
+  "id": "NAV",
+  "type": "OPEN_RECORD",
+  "content": {
+    "appId": "n",
+    "tblId": 2,
+    "recId": 3,
+    "nextRecordId": 4,
+    "previousRecordId": 5
+  }
+}
