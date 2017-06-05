@@ -8,6 +8,16 @@ import $ from 'jquery';
 
 import '../../node_modules/diff2html/dist/diff2html.css';
 
+console.log('sample:');
+console.log(
+  "Expected Object({ id: 'NAV', type: 'OPEN_RECORD', content: Object({ appId: 'n', tblId: 2, recId: 3, nextRecordId: 4, previousRecordId: 5 }) }) to equal Object({ id: 'NAV', type: 'OPEN_RECORD', content: Object({ appId: 1, tblId: 2, recId: 3, nextRecordId: 4, previousRecordId: 5 }) })"
+);
+console.log();
+console.log('sample');
+console.log(
+  "Expected [ Object({ id: 'NAV', type: 'SAVE_RECORD', content: Object({ appId: '1', tblId: '2', recId: null, changes: Object({ 4: Object({ fieldName: 'col_num', fieldDef: Object({ id: 4, builtIn: false, datatypeAttributes: true }), newVal: Object({ value: 'hi', display: 'there' }) }), 5: Object({ fieldName: 'col_builtin', fieldDef: Object({ id: 5, builtIn: true }), newVal: Object({ value: '5', display: 'no edit' }) }) }) }) }), Object({ id: 'NAV', type: 'SAVE_RECORD_ERROR', content: Object({ appId: '1', tblId: '2', recId: null, errors: Object({ data: Object({ response: Object({ errors: \"<circular reference: Object>\" }) }), response: Object({ status: null, data: Object({ response: Object({ status: null }) }) }) }) }) }), Object({ id: 'NAV', type: 'SAVE_RECORD_COMPLETE', content: Object({ appId: '1', tblId: '2', recId: null }) }) ] to equal [ Object({ id: null, type: 'SAVE_RECORD', content: Object({ appId: '1', tblId: '2', recId: null, changes: Object({ 4: Object({ fieldName: 'col_num', fieldDef: Object({ id: 4, builtIn: false, datatypeAttributes: true }), newVal: Object({ value: 'hi', display: 'there' }) }), 5: Object({ fieldName: 'col_builtin', fieldDef: Object({ id: 5, builtIn: true }), newVal: Object({ value: '5', display: 'no edit' }) }) }) }) }), Object({ id: null, type: 'SAVE_RECORD_ERROR', content: Object({ appId: '1', tblId: '2', recId: null, errors: \"<jasmine.any(Object)>\" }) }), Object({ id: null, type: 'SAVE_RECORD_COMPLETE', content: Object({ appId: '1', tblId: '2', recId: null }) }) ]"
+);
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
