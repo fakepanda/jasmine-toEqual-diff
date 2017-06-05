@@ -12395,15 +12395,16 @@ var App = function (_React$Component) {
       //    var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
       var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
 
+      //TODO add filename with "Actual", "Expected"
       diff2htmlUi.draw('#diff', {
         inputFormat: 'diff',
-        matching: 'lines',
-        showFiles: true
+        outputFormat: 'side-by-side',
+        matching: 'word'
       });
       diff2htmlUi.draw('#diff2', {
         inputFormat: 'diff',
-        matching: 'lines',
-        showFiles: true
+        outputFormat: 'side-by-side',
+        matching: 'line'
       });
     }
   }, {
@@ -12411,7 +12412,15 @@ var App = function (_React$Component) {
     value: function render() {
       return _preact2.default.createElement(
         'div',
-        { style: { display: 'flex', flexDirection: 'column' } },
+        {
+          style: {
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: 1200,
+            margin: 'auto',
+            marginTop: 50
+          }
+        },
         _preact2.default.createElement('textarea', {
           rows: '15',
           cols: '100',

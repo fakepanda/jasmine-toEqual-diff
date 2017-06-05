@@ -30,13 +30,16 @@ export default class App extends React.Component {
     //    var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
     var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
 
+    //TODO add filename with "Actual", "Expected"
     diff2htmlUi.draw('#diff', {
       inputFormat: 'diff',
+      outputFormat: 'side-by-side',
       matching: 'word'
     });
     diff2htmlUi.draw('#diff2', {
       inputFormat: 'diff',
-      matching: 'word'
+      outputFormat: 'side-by-side',
+      matching: 'line'
     });
   }
 
