@@ -16,7 +16,7 @@ module.exports = {
     Diff2Html: './node_modules/diff2html/dist/diff2html-ui.js'
   },
   output: {
-    path: path.resolve('dist'),
+    path: path.resolve('docs'),
     filename: '[name].js'
   },
   module: {
