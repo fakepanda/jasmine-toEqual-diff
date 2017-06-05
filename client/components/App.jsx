@@ -32,19 +32,25 @@ export default class App extends React.Component {
 
     diff2htmlUi.draw('#diff', {
       inputFormat: 'diff',
-      matching: 'lines',
-      showFiles: true
+      matching: 'word'
     });
     diff2htmlUi.draw('#diff2', {
       inputFormat: 'diff',
-      matching: 'lines',
-      showFiles: true
+      matching: 'word'
     });
   }
 
   render() {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          maxWidth: 1200,
+          margin: 'auto',
+          marginTop: 50
+        }}
+      >
         <textarea
           rows="15"
           cols="100"
