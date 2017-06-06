@@ -6,22 +6,15 @@ import { Diff2Html } from 'diff2html';
 import $ from 'jquery';
 //import Diff2HtmlUI from '../../node_modules/diff2html/dist/diff2html-ui';
 
+import './styles.css';
 import '../../node_modules/diff2html/dist/diff2html.css';
-
-console.log('sample:');
-console.log(
-  "Expected Object({ id: 'NAV', type: 'OPEN_RECORD', content: Object({ appId: 'n', tblId: 2, recId: 3, nextRecordId: 4, previousRecordId: 5 }) }) to equal Object({ id: 'NAV', type: 'OPEN_RECORD', content: Object({ appId: 1, tblId: 2, recId: 3, nextRecordId: 4, previousRecordId: 5 }) })"
-);
-console.log();
-console.log('sample');
-console.log(
-  "Expected [ Object({ id: 'NAV', type: 'SAVE_RECORD', content: Object({ appId: '1', tblId: '2', recId: null, changes: Object({ 4: Object({ fieldName: 'col_num', fieldDef: Object({ id: 4, builtIn: false, datatypeAttributes: true }), newVal: Object({ value: 'hi', display: 'there' }) }), 5: Object({ fieldName: 'col_builtin', fieldDef: Object({ id: 5, builtIn: true }), newVal: Object({ value: '5', display: 'no edit' }) }) }) }) }), Object({ id: 'NAV', type: 'SAVE_RECORD_ERROR', content: Object({ appId: '1', tblId: '2', recId: null, errors: Object({ data: Object({ response: Object({ errors: \"<circular reference: Object>\" }) }), response: Object({ status: null, data: Object({ response: Object({ status: null }) }) }) }) }) }), Object({ id: 'NAV', type: 'SAVE_RECORD_COMPLETE', content: Object({ appId: '1', tblId: '2', recId: null }) }) ] to equal [ Object({ id: null, type: 'SAVE_RECORD', content: Object({ appId: '1', tblId: '2', recId: null, changes: Object({ 4: Object({ fieldName: 'col_num', fieldDef: Object({ id: 4, builtIn: false, datatypeAttributes: true }), newVal: Object({ value: 'hi', display: 'there' }) }), 5: Object({ fieldName: 'col_builtin', fieldDef: Object({ id: 5, builtIn: true }), newVal: Object({ value: '5', display: 'no edit' }) }) }) }) }), Object({ id: null, type: 'SAVE_RECORD_ERROR', content: Object({ appId: '1', tblId: '2', recId: null, errors: \"<jasmine.any(Object)>\" }) }), Object({ id: null, type: 'SAVE_RECORD_COMPLETE', content: Object({ appId: '1', tblId: '2', recId: null }) }) ]"
-);
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { jasmineDiffText: '' };
+    this.state = {
+      jasmineDiffText: "Expected [ Object({ id: 'test', content: Object({ subId: 1, title: null, params: Object({ 4: Object({ name: 'Jon'}), numArray: [4, 8, 15, 16, 23, 42], ref: Object({ errors: <circular reference: Object> }) }) }) })] to equal [ Object({ id: 'ss', content: Object({ subId: 1, title: null, params: Object({ 4: Object({ name: 'John'}), numArray: [4, 8, 15, 16, 23, 42], ref: Object({ errors: <jasmine.any(Object)> }) }) }) })]"
+    };
   }
 
   onTextChange(event) {
@@ -34,12 +27,9 @@ export default class App extends React.Component {
     const diffArr = parseToDiff(this.state.jasmineDiffText);
     // create diff
     const diffStr = diff(diffArr[0], diffArr[1]);
-    // print the diff
-    //Diff2Html.getPrettyHtml;
-    //Diff2HtmlUI.
-    //    var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
-    var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
 
+    // print the diff
+    var diff2htmlUi = new Diff2HtmlUI({ diff: diffStr });
     //TODO add filename with "Actual", "Expected"
     diff2htmlUi.draw('#diff', {
       inputFormat: 'diff',
@@ -61,16 +51,19 @@ export default class App extends React.Component {
           flexDirection: 'column',
           maxWidth: 1200,
           margin: 'auto',
-          marginTop: 50
+          marginTop: 50,
+          alignItems: 'center'
         }}
       >
         <textarea
           rows="15"
-          cols="100"
+          cols="140"
           value={this.state.jasmineDiffText}
           onChange={this.onTextChange.bind(this)}
         />
-        <button onClick={this.onClickHandler.bind(this)}>Diff</button>
+        <button onClick={this.onClickHandler.bind(this)}>
+          Diff
+        </button>
       </div>
     );
   }

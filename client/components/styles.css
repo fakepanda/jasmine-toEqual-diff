@@ -1,0 +1,18 @@
+button {
+  margin: 10px;
+  padding: 10px 25px;
+  width: 125px;
+  color: #f4f4f4;
+  background: #44aaa5;
+  font-weight: bold;
+  font-family: Arial;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 0;
+  border-color: #e3edf4;
+  outline: 0;
+}
+
+button:active {
+  background: #228888;
+}
